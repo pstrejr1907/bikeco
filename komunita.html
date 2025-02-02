@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komunita - Cyklo Aplikácia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="komunita.css">
+</head>
+<body>
+    <!-- Navigácia -->
+    <nav class="top-nav" id="topNav">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-bicycle"></i>
+                <span>Bike&CO</span>
+            </div>
+            <div class="nav-links">
+                <a href="main.html"><i class="fas fa-home"></i> Domov</a>
+                <a href="jazdy.html"><i class="fas fa-bicycle"></i> Jazdy</a>
+                <a href="straty-nalezy.html"><i class="fas fa-search"></i> Straty a nálezy</a>
+                <a href="bazar.html"><i class="fas fa-store"></i> Bazár</a>
+                <a href="komunita.html" class="active"><i class="fas fa-users"></i> Komunita</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hlavný obsah -->
+    <div class="container">
+        <div class="community-header">
+            <h1>Komunitné príspevky</h1>
+            <p>Zdieľajte svoje zážitky s ostatnými cyklistami</p>
+        </div>
+
+        <div class="admin-section">
+            <button id="adminLoginBtn" class="admin-btn">
+                <div class="admin-btn-content">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Administrátor</span>
+                </div>
+                <div class="admin-btn-hover">
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+            </button>
+        </div>
+
+        <!-- Formulár pre nový príspevok -->
+        <div class="post-form">
+            <h2>Pridať nový príspevok</h2>
+            <form id="newPostForm">
+                <input type="text" id="authorName" placeholder="Vaše meno" required>
+                <textarea id="postContent" placeholder="Text príspevku" required></textarea>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Pridať príspevok
+                </button>
+            </form>
+        </div>
+
+        <!-- Kontajner pre príspevky -->
+        <div class="posts-container" id="postsContainer">
+            <!-- Príspevky sa budú generovať dynamicky -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-info-circle"></i> O aplikácii</h3>
+                <p>Cyklo Aplikácia je komunitná platforma pre cyklistov.</p>
+                <a href="o-nas.html" class="more-link">Viac o nás</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Rýchle odkazy</h3>
+                <div class="quick-links">
+                    <a href="main.html"><i class="fas fa-home"></i> Domov</a>
+                    <a href="jazdy.html"><i class="fas fa-bicycle"></i> Jazdy</a>
+                    <a href="#"><i class="fas fa-search"></i> Straty a nálezy</a>
+                    <a href="#"><i class="fas fa-store"></i> Bazár</a>
+                    <a href="komunita.html"><i class="fas fa-users"></i> Komunita</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-envelope"></i> Kontakt</h3>
+                <p><i class="fas fa-phone"></i> +421 900 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@cykloaplikacia.sk</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bratislava, Slovensko</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Modal -->
+    <div id="adminModal" class="admin-modal">
+        <div class="admin-modal-content">
+            <span class="close">&times;</span>
+            <h2>Admin Prihlásenie</h2>
+            <form id="adminLoginForm">
+                <input type="text" id="adminUsername" placeholder="Admin meno" required>
+                <input type="password" id="adminPassword" placeholder="Heslo" required>
+                <button type="submit" class="admin-submit-btn">Prihlásiť</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="komunita.js"></script>
+</body>
+</html> 
