@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Straty a nálezy - Cyklo Aplikácia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="straty-nalezy.css">
+</head>
+<body>
+    <!-- Navigácia -->
+    <nav class="top-nav" id="topNav">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-bicycle"></i>
+                <span>Bike&CO</span>
+            </div>
+            <div class="nav-links">
+                <a href="main.html"><i class="fas fa-home"></i> Domov</a>
+                <a href="jazdy.html"><i class="fas fa-bicycle"></i> Jazdy</a>
+                <a href="straty-nalezy.html" class="active"><i class="fas fa-search"></i> Straty a nálezy</a>
+                <a href="bazar.html"><i class="fas fa-store"></i> Bazár</a>
+                <a href="komunita.html"><i class="fas fa-users"></i> Komunita</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hlavný obsah -->
+    <div class="container">
+        <div class="lost-found-header">
+            <h1>Straty a nálezy</h1>
+            <p>Pomôžte nájsť stratené veci alebo ich majiteľov</p>
+            <div class="header-buttons">
+                <button id="createLostBtn" class="create-btn lost">
+                    <i class="fas fa-search"></i>
+                    <span>Stratil som</span>
+                </button>
+                <button id="createFoundBtn" class="create-btn found">
+                    <i class="fas fa-hand-holding"></i>
+                    <span>Našiel som</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filtre -->
+        <div class="filters-section">
+            <div class="filter-group">
+                <label>Zobraziť:</label>
+                <div class="type-buttons">
+                    <button data-type="all" class="active">Všetko</button>
+                    <button data-type="lost">Straty</button>
+                    <button data-type="found">Nálezy</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Kategória:</label>
+                <select id="categoryFilter">
+                    <option value="all">Všetky kategórie</option>
+                    <option value="bike">Bicykel</option>
+                    <option value="parts">Súčiastky</option>
+                    <option value="accessories">Doplnky</option>
+                    <option value="clothes">Oblečenie</option>
+                    <option value="other">Ostatné</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Vyhľadávanie:</label>
+                <input type="text" id="searchItems" placeholder="Hľadať...">
+            </div>
+        </div>
+
+        <!-- Kontajner pre inzeráty -->
+        <div class="items-container" id="itemsContainer">
+            <!-- Inzeráty sa budú generovať dynamicky -->
+        </div>
+    </div>
+
+    <!-- Modal pre vytvorenie inzerátu -->
+    <div id="itemModal" class="item-modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Nový inzerát</h2>
+            <form id="itemForm">
+                <div class="form-group">
+                    <label>Typ:</label>
+                    <select id="itemType" required>
+                        <option value="lost">Stratené</option>
+                        <option value="found">Nájdené</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Kategória:</label>
+                    <select id="itemCategory" required>
+                        <option value="bike">Bicykel</option>
+                        <option value="parts">Súčiastky</option>
+                        <option value="accessories">Doplnky</option>
+                        <option value="clothes">Oblečenie</option>
+                        <option value="other">Ostatné</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Názov:</label>
+                    <input type="text" id="itemTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>Popis:</label>
+                    <textarea id="itemDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Lokalita:</label>
+                    <input type="text" id="itemLocation" required>
+                </div>
+                <div class="form-group">
+                    <label>Dátum:</label>
+                    <input type="date" id="itemDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Kontaktné meno:</label>
+                    <input type="text" id="contactName" required>
+                </div>
+                <div class="form-group">
+                    <label>Kontaktný email:</label>
+                    <input type="email" id="contactEmail" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefónne číslo (voliteľné):</label>
+                    <input type="tel" id="contactPhone" pattern="[0-9+\s-]{9,}" placeholder="+421 XXX XXX XXX">
+                </div>
+                <div class="form-group">
+                    <label>Obrázok (voliteľné):</label>
+                    <input type="file" id="itemImage" accept="image/*">
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-save"></i>
+                    <span>Uložiť inzerát</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3><i class="fas fa-info-circle"></i> O aplikácii</h3>
+                <p>Cyklo Aplikácia je komunitná platforma pre cyklistov.</p>
+                <a href="o-nas.html" class="more-link">Viac o nás</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-link"></i> Rýchle odkazy</h3>
+                <div class="quick-links">
+                    <a href="main.html"><i class="fas fa-home"></i> Domov</a>
+                    <a href="jazdy.html"><i class="fas fa-bicycle"></i> Jazdy</a>
+                    <a href="straty-nalezy.html"><i class="fas fa-search"></i> Straty a nálezy</a>
+                    <a href="bazar.html"><i class="fas fa-store"></i> Bazár</a>
+                    <a href="komunita.html"><i class="fas fa-users"></i> Komunita</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3><i class="fas fa-envelope"></i> Kontakt</h3>
+                <p><i class="fas fa-phone"></i> +421 900 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@cykloaplikacia.sk</p>
+                <p><i class="fas fa-map-marker-alt"></i> Bratislava, Slovensko</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="straty-nalezy.js"></script>
+</body>
+</html> 
